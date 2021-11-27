@@ -108,7 +108,7 @@ select {
     gap: var(--gap, 1rem);
 }
 
-.flow > * + * /* *+*-znaci da ce se ovo primjenjivat samo na child koji ima prethodni sibling te se zato nece primjeniti na prvi child jer prije njega nema niti jedan!  Ovo se još moze i napisati: *:not(:first child) */{
+.flow > /**:where(:not(:first-child))*/ /* *+*-znaci da ce se ovo primjenjivat samo na child koji ima prethodni sibling te se zato nece primjeniti na prvi child jer prije njega nema niti jedan!  Ovo se još moze i napisati: *:not(:first child) */{
     margin-top: 1rem;
     outline: 1px solid red;
 }
@@ -214,4 +214,35 @@ select {
 .large-button:focus::after{
     transform: scale(1.5);
     opacity: 1;
+}
+
+.primary-navigation{
+    --gap: 8rem;
+    --underline-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-navigation a{
+    text-decoration: none;
+}
+
+.primary-navigation a > span{
+    font-weight: 700;
+    margin-right: .5rem;
+}
+
+.underline-indicators > * /* Ovo > * znaci da cemo selektirati svaki direktni child/descendense koji se nalazi ispod te klase */{
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0);
+    padding: var(--underline-gap, 1rem) 0;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus{
+    border-color: hsl( var(--clr-white) /.5 );
+}
+
+.underline-indicators> .active{
+    border-color: hsl( var(--clr-white) / 1 );
 }
