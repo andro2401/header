@@ -95,7 +95,7 @@ body{
     color: hsl( var(--clr-white));
     line-height: 1.5;
     min-height: 100vh;
-
+    overflow-x: hidden;
     display: grid;
     grid-template-rows: min-content 1fr;
 }
@@ -284,12 +284,18 @@ select {
     background: hsl( var(--clr-dark) / .95);
 }
 
+
+
 /* @supports znaci da ce se ovaj kod ispod primjenit samo ako browser podržava ovu css funkciju*/
 @supports(backdrop-filter: blur(1rem)){
     .primary-navigation{
         background: hsl( var(--clr-white) / .15);
         backdrop-filter: blur(1rem);
     }
+}
+
+.mobile-nav-toggle{
+    display: none;
 }
 
 @media (max-width: 35rem){
@@ -302,9 +308,28 @@ select {
         padding: min(20rem, 10vh) 2rem;
         margin: 0;
         flex-direction: column;
+        transform: translateX(100%);
+    }
+
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0);
     }
 
     .primary-navigation.underline-indicators > .active{
+        border: 0;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        background-image: url(./assets/shared/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        aspect-ratio: 1;
         border: 0;
     }
 }
