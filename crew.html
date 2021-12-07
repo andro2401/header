@@ -40,13 +40,13 @@
         <h1 class="numbered-title"><span aria-hidden="true">02</span> Meet your crew</h1>
 
         <div class="dot-indicators flex" style="margin-bottom: 4rem;">
-            <button aria-selected="true"><span class="sr-only">The commander</span></button>
+            <button aria-selected="true" aria-controls="comander-tab"><span class="sr-only">The commander</span></button>
             <button aria-selected="false"><span class="sr-only">The mission specialist</span></button>
             <button aria-selected="false"><span class="sr-only">The pilot</span></button>
             <button aria-selected="false"><span class="sr-only">The crew engenier</span></button>
         </div>
 
-        <article class="crew-details flow">
+        <article class="crew-details flow" id="commander-tab">
             <header class="flow flow--space-small">
                 <h2 class="fs-600 ff-serif uppercase">Commander</h2>
                 <p class="fs-700 uppercase ff-serif">Douglas Hurley</p>
@@ -61,6 +61,6 @@
           </picture>
     </main>
 
-    <script src="index.js" defer></script>
+    <script src="nav.js" defer></script>
 </body>
 </html>
